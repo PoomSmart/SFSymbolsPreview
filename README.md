@@ -1,38 +1,39 @@
 # SFSymbolsPreview
 
-SF Symbols iOS App: This app is free and open-source, which mirrors featues from [Adaptivity](https://apps.apple.com/app/id1054670022?platform=iphone).
+Fork of [Lessica/SFSymbolsPreview](https://github.com/Lessica/SFSymbolsPreview) (from [MORECATS/SFSymbolsPreview](https://github.com/MORECATS/SFSymbolsPreview)). Used to preview SF Symbols on device.
 
-[![Download From App Store](./Images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg)](https://apps.apple.com/app/sf-symbols-preview/id1614827141)
+SF Symbols iOS app: free and open source, inspired by [Adaptivity](https://apps.apple.com/app/id1054670022?platform=iphone).
+
+## This fork
+
+- Bundle ID `com.ps.SFSymbolsPreview` for side-by-side installs with the App Store build.
+- `SFSYMBOLS_BACKPORT_PREVIEW` lists every symbol and variant in the catalog on iOS, even when metadata says the name needs a newer OS. Availability strings in symbol details are unchanged.
+- CocoaPods pulls [Lessica/XUI](https://github.com/Lessica/XUI.git) from GitHub instead of a sibling `../XUI` checkout.
+- Symbol metadata under `SFSymbolsPreview/Resources/` is refreshed from Apple's SF Symbols app via `DevKit/generate_resources.py` when you update the catalog.
+
+## Build
+
+```sh
+pod install
+open SFSymbolsPreview.xcworkspace
+```
+
+Archive or run from Xcode. For unsigned `.tipa` packages:
+
+```sh
+./compile.sh
+```
+
+`compile.sh` archives for device (`iphoneos`). Xcode must have the **iOS device platform** installed (Settings → Platforms). A Simulator runtime download does not satisfy that. Install the iOS entry that includes device support from the Platforms tab.
+
+Optional: [xcbeautify](https://github.com/cpisciotta/xcbeautify) for shorter build logs (`brew install xcbeautify`). The Sileo-style package uses LZMA inside the zip. Install [p7zip](https://github.com/ip7z/p7zip) so `7zz` or `7z` is available (`brew install p7zip`).
+
+Outputs land in `packages/` (`SFSymbolsPreview.tipa` and `SFSymbolsPreview_Havoc.tipa`).
 
 ## Why?
 
-SF Symbols are free to use, but why [Adaptivity](https://apps.apple.com/app/id1054670022?platform=iphone) costs me **$7.99**?
+SF Symbols are free to use, but why [Adaptivity](https://apps.apple.com/app/id1054670022?platform=iphone) costs **$7.99**?
 
+## Screenshot
 
-## TODOs
-
-I won't implement all features in [Adaptivity](https://apps.apple.com/app/id1054670022?platform=iphone) because I don't think these <del>features</del> make much sense. It's an app, not a database.
-
-- [ ] <del>Collection: Restricted</del>
-- [ ] <del>Collection: Language Localized</del>
-- [ ] <del>Collection: Right-to-Left Localized</del>
-- [ ] <del>Collection: Added</del>
-- [ ] <del>Collection: Renamed</del>
-- [x] My Favorites
-- [x] Settings: Render Mode
-- [x] Settings: Tint color(s)
-- [ ] Settings: Annotations
-    - [ ] Annotation: Baseline
-    - [x] Annotation: Favorite
-    - [ ] <del>Annotation: Availability</del>
-    - [ ] <del>Annotation: Language Localized</del>
-    - [ ] <del>Annotation: Right-to-Left Localized</del>
-- [ ] Symbol Views: Variant Dynamic Views
-- [ ] RTL Support
-- [ ] Multiple Window Support
-- [ ] <del>Limit the view to only include symbols that are available in a specific iOS version (13, 14.0, 14.2, 14.5 or 15), displaying names that are appropriate for that version (which also work on later versions).</del>
-
-
-# Screenshot Preview
-
-![ScreenshotPreview](https://github.com/MORECATS/SFSymbolsPreview/blob/master/Images/SFSymbol-Screenshot-Preview.png)
+![ScreenshotPreview](Images/SFSymbol-Screenshot-Preview.png)

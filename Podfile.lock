@@ -2,15 +2,20 @@ PODS:
   - XUI (1.1.2)
 
 DEPENDENCIES:
-  - XUI (from `../XUI`)
+  - XUI (from `https://github.com/Lessica/XUI.git`)
 
 EXTERNAL SOURCES:
   XUI:
-    :path: "../XUI"
+    :git: https://github.com/Lessica/XUI.git
+
+CHECKOUT OPTIONS:
+  XUI:
+    :commit: 4a186251b687a2b38734b3b1794d1f97202217b0
+    :git: https://github.com/Lessica/XUI.git
 
 SPEC CHECKSUMS:
   XUI: de0dd8c99edeaa5b60303240df9d53cc0cdfd1a7
 
-PODFILE CHECKSUM: f5f980f21d40ed05ada21339c1b08ea0c749cfdf
+PODFILE CHECKSUM: cd8a91196ce462671437a2a890ac7182aa79a4da
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.16.2

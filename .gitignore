@@ -1,5 +1,6 @@
 /build
 /packages
+/7zz
 compile_commands.json
 *.xcarchive
 

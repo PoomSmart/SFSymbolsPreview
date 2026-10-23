@@ -95,7 +95,11 @@ NSString * const SFSymbolAvailabilityPlatformName_visionOS = @"visionOS";
         return [[[UIDevice currentDevice] systemVersion] localizedStandardCompare:availabilityValue] != NSOrderedAscending;
 #endif
     }
+#if SFSYMBOLS_BACKPORT_PREVIEW
+    return YES;
+#else
     return [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion) {majorVersion, minorVersion, patchVersion}];
+#endif
 }
 
 + (nullable SFSymbolAvailabilityPlatformName)platformWithName:(NSString *)platformName {
